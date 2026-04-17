@@ -370,6 +370,7 @@ function EventCard({ item }) {
 }
 
 export default function App() {
+  const isMobile = typeof window !== "undefined" ? window.innerWidth < 900 : false;
   const [countdown, setCountdown] = useState(getCountdownParts(WEDDING.isoDate));
   const [code, setCode] = useState("");
   const [guest, setGuest] = useState(null);
@@ -507,7 +508,13 @@ export default function App() {
     <div style={styles.page}>
       <section style={styles.hero}>
         <div style={styles.shell}>
-          <div style={styles.heroGrid}>
+          <div style={{
+            ...styles.heroGrid,
+            gridTemplateColumns: isMobile ? "1fr" : styles.heroGrid.gridTemplateColumns,
+            alignItems: isMobile ? "start" : styles.heroGrid.alignItems,
+            minHeight: isMobile ? "auto" : styles.heroGrid.minHeight,
+            gap: isMobile ? 20 : styles.heroGrid.gap,
+          }}>
             <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <div style={styles.badge}>September 2026 • Denver</div>
               <h1 style={styles.title}>{WEDDING.couple}</h1>
@@ -551,7 +558,7 @@ export default function App() {
               </div>
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.1 }}>
+            <motion.div initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.1 }} style={{ maxWidth: isMobile ? "100%" : undefined }}>
               <div style={styles.card}>
                 <div style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 28, fontWeight: 700 }}>
                   <Heart size={22} /> RSVP
