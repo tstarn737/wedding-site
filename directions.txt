@@ -1,0 +1,149 @@
+Good thinking — this is exactly where people usually screw themselves later.
+
+I’ll keep this **practical and minimal** so you don’t copy junk.
+
+---
+
+# 🎯 What you ACTUALLY need to copy
+
+## ✅ Copy this entire folder:
+
+```text
+wedding-site/
+```
+
+That’s it.
+
+👉 Your whole project lives there.
+
+---
+
+# 🧠 Inside that folder (important breakdown)
+
+## MUST HAVE
+
+These are critical:
+
+```text
+wedding-site/
+├── src/
+├── public/
+├── package.json
+├── package-lock.json
+├── vite.config.js
+├── index.html
+```
+
+👉 If any of these are missing → project won’t run
+
+---
+
+## ⚠️ DO NOT WORRY ABOUT THIS
+
+You’ll see this big folder:
+
+```text
+node_modules/
+```
+
+👉 You do **NOT need to copy this**
+
+* It’s huge
+* It rebuilds automatically
+
+---
+
+# ✅ BEST PRACTICE (what I recommend)
+
+### Option A (simplest — do this)
+
+Copy everything **except**:
+
+```text
+node_modules/
+```
+
+---
+
+### Option B (clean + pro way)
+
+Just copy:
+
+```text
+wedding-site/
+  (without node_modules)
+```
+
+Then on your laptop:
+
+```bash
+cd wedding-site
+npm install
+npm run dev
+```
+
+👉 This rebuilds everything cleanly
+
+---
+
+# 🔥 ALSO IMPORTANT (don’t forget)
+
+Your backend is NOT on your computer:
+
+* Google Sheet ✅ (cloud)
+* Apps Script ✅ (cloud)
+
+👉 So you don’t need to copy anything for that
+
+---
+
+# ⚠️ One thing to watch (you WILL hit this)
+
+On your laptop you must have:
+
+* Node.js installed
+
+Test it:
+
+```bash
+node -v
+npm -v
+```
+
+---
+
+# 🧭 Quick checklist before you leave
+
+* [ ] Copy `wedding-site` folder (no node_modules)
+* [ ] Plug into laptop
+* [ ] Run:
+
+  ```bash
+  npm install
+  npm run dev
+  ```
+
+---
+
+# 🧠 Pro tip (optional but smart)
+
+If you want zero friction later:
+
+👉 Zip the folder before copying
+Less chance of weird file issues
+
+---
+
+# 👍 Bottom line
+
+You’re in a very clean setup:
+
+* frontend = local folder
+* backend = Google cloud
+
+👉 Super portable
+
+---
+
+If you want, I can next show you how to:
+👉 put this on GitHub so you never worry about losing it again
