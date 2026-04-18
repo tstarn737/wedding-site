@@ -52,7 +52,7 @@ const WEDDING = {
     },
     {
       title: "Reception / Party",
-      time: "Saturday Sep 19, 5:00 PM",
+      time: "Saturday Sep 19, 5:00 - 10:00 PM",
       description:
         "Food, drinks, golf, music, and a very good time. We will update here once the food truck is locked in. Bring your swing — prizes for longest drive and closest to the pin.",
       tag: "party_only",
@@ -200,8 +200,8 @@ const styles = {
     display: "inline-block",
     padding: "8px 14px",
     borderRadius: 999,
-    background: "rgba(255,255,255,.1)",
-    border: "1px solid rgba(255,255,255,.14)",
+    background: "rgba(255,255,255,.06)",
+    border: "1px solid rgba(255,255,255,.10)",
     fontSize: 12,
     letterSpacing: ".18em",
     textTransform: "uppercase",
@@ -376,6 +376,20 @@ function EventCard({ item, isMobile }) {
           <div style={{ fontSize: 22, fontWeight: 650 }}>{item.title}</div>
           {item.venueName ? <div style={{ fontSize: 16, fontWeight: 600, marginTop: 8 }}>{item.venueName}</div> : null}
           <div style={{ ...styles.muted, marginTop: 10 }}>{item.description}</div>
+
+          {item.tag === "party_only" ? (
+            <div style={{ marginTop: 14 }}>
+              <div style={{ fontWeight: 600, marginBottom: 8 }}>Itinerary</div>
+              <div style={{ display: "grid", gridTemplateColumns: "110px 1fr", rowGap: 6, columnGap: 10, alignItems: "center" }}>
+                <div style={{ fontWeight: 600 }}>5:00 PM</div>
+                <div style={{ ...styles.muted }}>Start</div>
+                <div style={{ fontWeight: 600 }}>6–8 PM</div>
+                <div style={{ ...styles.muted }}>Food Truck</div>
+                <div style={{ fontWeight: 600 }}>10:00 PM</div>
+                <div style={{ ...styles.muted }}>Wrap Up</div>
+              </div>
+            </div>
+          ) : null}
 
           {item.address ? (
             <div style={{ ...styles.muted, marginTop: 14 }}>
