@@ -351,14 +351,14 @@ function EventCard({ item }) {
             </div>
           ) : null}
 
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 16 }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 16, flexDirection: isMobile ? "column" : "row" }}>
             {item.mapLink ? (
-              <a href={item.mapLink} target="_blank" rel="noreferrer" style={{ ...styles.button, display: "inline-flex", alignItems: "center", justifyContent: "center", textDecoration: "none", height: 42 }}>
+              <a href={item.mapLink} target="_blank" rel="noreferrer" style={{ ...styles.button, display: "inline-flex", alignItems: "center", justifyContent: "center", textDecoration: "none", height: 42, width: isMobile ? "100%" : undefined }}>
                 Google Maps
               </a>
             ) : null}
             {item.website ? (
-              <a href={item.website} target="_blank" rel="noreferrer" style={{ ...styles.ghostButton, display: "inline-flex", alignItems: "center", justifyContent: "center", textDecoration: "none", height: 42 }}>
+              <a href={item.website} target="_blank" rel="noreferrer" style={{ ...styles.ghostButton, display: "inline-flex", alignItems: "center", justifyContent: "center", textDecoration: "none", height: 42, width: isMobile ? "100%" : undefined }}>
                 Venue Website
               </a>
             ) : null}
@@ -686,7 +686,10 @@ export default function App() {
       {guest ? (
       <>
         <section style={styles.section}>
-          <div style={styles.darkCardGrid}>
+          <div style={{
+            ...styles.darkCardGrid,
+            gridTemplateColumns: isMobile ? "1fr" : styles.darkCardGrid.gridTemplateColumns,
+          }}>
             <div style={styles.darkCard}>
               <CalendarDays size={22} color="rgba(255,255,255,.7)" />
               <div style={{ fontSize: 22, fontWeight: 650, marginTop: 14 }}>When</div>
@@ -710,7 +713,14 @@ export default function App() {
         </section>
 
         <section style={{ ...styles.section, paddingTop: 0 }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "end", gap: 16, marginBottom: 22 }}>
+          <div style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: isMobile ? "start" : "end",
+            flexDirection: isMobile ? "column" : "row",
+            gap: 16,
+            marginBottom: 22,
+          }}>
             <div>
               <div style={{ fontSize: 12, letterSpacing: ".18em", textTransform: "uppercase", color: "rgba(255,255,255,.5)" }}>Schedule</div>
               <div style={{ fontSize: 36, fontWeight: 700, marginTop: 10 }}>Your event flow</div>
@@ -720,7 +730,10 @@ export default function App() {
             </div>
           </div>
 
-          <div style={styles.scheduleGrid}>
+          <div style={{
+            ...styles.scheduleGrid,
+            gridTemplateColumns: isMobile ? "1fr" : styles.scheduleGrid.gridTemplateColumns,
+          }}>
             {visibleSchedule.map((item) => (
               <EventCard key={item.title} item={item} />
             ))}
