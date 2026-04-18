@@ -16,7 +16,7 @@ const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyMpJy6E2kALozd
 const WEDDING = {
   couple: "Tyler & Ashlyn",
   city: "Denver, Colorado",
-  venue: "Venue details below",
+  venue: "Wedding Weekend",
   heroImage: "/hero.jpg",
   story:
     "We’re so excited to celebrate with the people we love most. Thank you for being a part of our lives — we can’t wait to celebrate together.",
@@ -200,11 +200,12 @@ const styles = {
     display: "inline-block",
     padding: "8px 14px",
     borderRadius: 999,
-    background: "rgba(255,255,255,.06)",
-    border: "1px solid rgba(255,255,255,.10)",
+    background: "rgba(255,255,255,.14)",
+    border: "1px solid rgba(255,255,255,.22)",
     fontSize: 12,
     letterSpacing: ".18em",
     textTransform: "uppercase",
+    backdropFilter: "blur(6px)",
   },
   title: {
     fontSize: "clamp(44px, 8vw, 82px)",
