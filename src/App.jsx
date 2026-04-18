@@ -854,7 +854,7 @@ export default function App() {
                   <HouseHeart size={22} color="rgba(255,255,255,.7)" />
                   <div style={{ fontSize: 22, fontWeight: 650, marginTop: 14 }}>House Fund</div>
                   <div style={{ ...styles.muted, color: "rgba(255,255,255,.72)", marginTop: 8 }}>
-                    Saturday Party guests only see party details. Ceremony & Party guests see the full event flow.
+                    We know we have generous family & friends, but we are not in need of any gifts, if you are inclined to gift anything we appreciate donations for remodelling our new home together.
                   </div>
                 </div>
               </div>
