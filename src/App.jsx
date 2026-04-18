@@ -41,7 +41,7 @@ const WEDDING = {
     {
       title: "Reception / Party",
       time: "Saturday Sep 19, 5:00 PM",
-      description: "Drinks, golf, music, and a very good time.",
+      description: "Food, drinks, golf, music, and a very good time.  We will update here once the foodtruck is locked in. Bring your swing! Prizes for longest drive and closest to the pin!🏌️‍♂️⛳",
       tag: "party_only",
       venueName: "Stick & Feather",
       address: "3851 Steele St - Unit 1378, Denver, CO 80205",
@@ -165,6 +165,8 @@ const styles = {
     maxWidth: 1180,
     margin: "0 auto",
     padding: "28px 24px",
+    position: "relative",
+    zIndex: 2,
   },
   heroGrid: {
     display: "grid",
@@ -742,7 +744,8 @@ export default function App() {
               top: "clamp(300px, 76vw, 430px)",
               height: 180,
               pointerEvents: "none",
-              background: "linear-gradient(to bottom, rgba(10,10,10,0) 0%, rgba(10,10,10,.32) 28%, rgba(10,10,10,.72) 68%, #0a0a0a 100%)",
+              background: "linear-gradient(to bottom, rgba(10,10,10,0) 0%, rgba(10,10,10,.22) 28%, rgba(10,10,10,.55) 68%, #0a0a0a 100%)",
+              zIndex: 1,
             }}
           />
         ) : null}
@@ -754,7 +757,8 @@ export default function App() {
             bottom: 0,
             height: isMobile ? 110 : 180,
             pointerEvents: "none",
-            background: "linear-gradient(to bottom, rgba(10,10,10,0) 0%, rgba(10,10,10,.22) 32%, rgba(10,10,10,.6) 72%, #0a0a0a 100%)",
+            background: "linear-gradient(to bottom, rgba(10,10,10,0) 0%, rgba(10,10,10,.16) 32%, rgba(10,10,10,.45) 72%, #0a0a0a 100%)",
+            zIndex: 1,
           }}
         />
       </>
