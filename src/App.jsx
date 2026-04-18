@@ -150,9 +150,11 @@ const styles = {
   },
   hero: {
     minHeight: "78vh",
-    backgroundImage: `linear-gradient(rgba(10,10,10,.25), rgba(10,10,10,.85)), url(${WEDDING.heroImage})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center 35%", /* adjust to keep faces framed */
+    backgroundImage: `linear-gradient(to bottom, rgba(10,10,10,.2), rgba(10,10,10,.9)), url(${WEDDING.heroImage})`,
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center top",
+    backgroundColor: "#0a0a0a",
     borderBottom: "1px solid rgba(255,255,255,.1)",
     position: "relative",
   },
@@ -752,18 +754,16 @@ export default function App() {
           <div style={{
             display: "flex",
             justifyContent: "space-between",
-            alignItems: isMobile ? "start" : "end",
+            alignItems: isMobile ? "center" : "end",
             flexDirection: isMobile ? "column" : "row",
             gap: 16,
             marginBottom: 22,
           }}>
-            <div>
+            <div style={{ textAlign: "center", width: "100%" }}>
               <div style={{ fontSize: 12, letterSpacing: ".18em", textTransform: "uppercase", color: "rgba(255,255,255,.5)" }}>Schedule</div>
               <div style={{ fontSize: 36, fontWeight: 700, marginTop: 10 }}>Your event flow</div>
             </div>
-            <div style={{ ...styles.pill, background: "rgba(255,255,255,.06)" }}>
-              Showing: {normalizedInviteType === "ceremony_party" ? "Ceremony & Party" : "Saturday Party"}
-            </div>
+            
           </div>
 
           <div style={{
