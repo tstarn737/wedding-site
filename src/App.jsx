@@ -321,7 +321,7 @@ const styles = {
   },
 };
 
-function EventCard({ item }) {
+function EventCard({ item, isMobile }) {
   return (
     <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
       <div style={{ ...styles.scheduleCard, overflow: "hidden", padding: 0 }}>
@@ -735,7 +735,7 @@ export default function App() {
             gridTemplateColumns: isMobile ? "1fr" : styles.scheduleGrid.gridTemplateColumns,
           }}>
             {visibleSchedule.map((item) => (
-              <EventCard key={item.title} item={item} />
+              <EventCard key={item.title} item={item} isMobile={isMobile} />
             ))}
           </div>
         </section>
