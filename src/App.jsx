@@ -8,6 +8,8 @@ const WEDDING = {
   couple: "Tyler & Ashlyn",
   dateLabel: "September 19, 2026",
   isoDate: "2026-09-19T16:00:00",
+  ceremonyPartyIsoDate: "2026-09-18T15:40:00",
+  saturdayPartyIsoDate: "2026-09-19T17:00:00",
   city: "Denver, Colorado",
   venue: "Venue details below",
   heroImage:
@@ -17,7 +19,7 @@ const WEDDING = {
   schedule: [
     {
       title: "Wedding Ceremony",
-      time: "3:40 PM",
+      time: "Friday Sep 18, 3:40 PM",
       description: "Ceremony begins at 4:00 PM, followed by time for photos with family and friends.",
       tag: "full_day",
       venueName: "Yetman Family Farms",
@@ -28,7 +30,7 @@ const WEDDING = {
     },
     {
       title: "Wedding Night Dinner",
-      time: "5:00 PM",
+      time: "Friday Sep 18, 5:00 PM",
       description: "Guests from the ceremony are invited to join us for dinener and drinks at our new home, just about a mile away.",
       tag: "full_day",
       venueName: "Our Home",
@@ -38,7 +40,7 @@ const WEDDING = {
     },
     {
       title: "Reception / Party",
-      time: "6:00 PM",
+      time: "Saturday Sep 19, 5:00 PM",
       description: "Drinks, golf, music, and a very good time.",
       tag: "party_only",
       venueName: "Stick & Feather",
@@ -459,11 +461,14 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    setCountdown(getCountdownParts(countdownTargetIso));
+
     const id = setInterval(() => {
-      setCountdown(getCountdownParts(WEDDING.isoDate));
+      setCountdown(getCountdownParts(countdownTargetIso));
     }, 60000);
+
     return () => clearInterval(id);
-  }, []);
+  }, [countdownTargetIso]);
 
   async function handleLookup() {
     setLookupState("loading");
@@ -534,6 +539,10 @@ export default function App() {
   }
 
   const normalizedInviteType = normalizeInviteType(guest?.inviteType);
+  const heroDateLabel = normalizedInviteType === "ceremony_party" ? "September 18 & 19, 2026" : "September 19, 2026";
+  const countdownTargetIso = normalizedInviteType === "ceremony_party"
+    ? WEDDING.ceremonyPartyIsoDate
+    : WEDDING.saturdayPartyIsoDate;
 
   const visibleSchedule = WEDDING.schedule.filter((item) => {
     if (!guest) return true;
@@ -577,7 +586,7 @@ export default function App() {
               </div>
 
               <div style={styles.pillRow}>
-                <div style={styles.pill}><CalendarDays size={16} /> {WEDDING.dateLabel}</div>
+                <div style={styles.pill}><CalendarDays size={16} /> {heroDateLabel}</div>
                 <div style={styles.pill}><MapPin size={16} /> {WEDDING.city}</div>
               </div>
 
@@ -758,7 +767,7 @@ export default function App() {
             <div style={styles.darkCard}>
               <CalendarDays size={22} color="rgba(255,255,255,.7)" />
               <div style={{ fontSize: 22, fontWeight: 650, marginTop: 14 }}>When</div>
-              <div style={{ ...styles.muted, color: "rgba(255,255,255,.72)", marginTop: 8 }}>{WEDDING.dateLabel}</div>
+              <div style={{ ...styles.muted, color: "rgba(255,255,255,.72)", marginTop: 8 }}>{heroDateLabel}</div>
             </div>
             <div style={styles.darkCard}>
               <MapPin size={22} color="rgba(255,255,255,.7)" />  <Mountain size={22} color="rgba(255,255,255,.7)" />
