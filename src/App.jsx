@@ -29,7 +29,7 @@ const WEDDING = {
     {
       title: "Wedding Night Dinner",
       time: "5:00 PM",
-      description: "Guests from the ceremony are invited to join us for Italian food and drinks at our new home, just about a mile away.",
+      description: "Guests from the ceremony are invited to join us for dinener and drinks at our new home, just about a mile away.",
       tag: "full_day",
       venueName: "Our Home",
       address: "8239 W Baker Ave, Lakewood, CO 80227",
@@ -351,14 +351,50 @@ function EventCard({ item, isMobile }) {
             </div>
           ) : null}
 
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 16, flexDirection: isMobile ? "column" : "row" }}>
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+            gap: 10,
+            marginTop: 16,
+            width: "100%",
+          }}>
             {item.mapLink ? (
-              <a href={item.mapLink} target="_blank" rel="noreferrer" style={{ ...styles.button, display: "inline-flex", alignItems: "center", justifyContent: "center", textDecoration: "none", height: 42, width: isMobile ? "100%" : undefined }}>
+              <a
+                href={item.mapLink}
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  ...styles.button,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  textDecoration: "none",
+                  height: 42,
+                  width: "100%",
+                  boxSizing: "border-box",
+                  textAlign: "center",
+                }}
+              >
                 Google Maps
               </a>
             ) : null}
             {item.website ? (
-              <a href={item.website} target="_blank" rel="noreferrer" style={{ ...styles.ghostButton, display: "inline-flex", alignItems: "center", justifyContent: "center", textDecoration: "none", height: 42, width: isMobile ? "100%" : undefined }}>
+              <a
+                href={item.website}
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  ...styles.ghostButton,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  textDecoration: "none",
+                  height: 42,
+                  width: "100%",
+                  boxSizing: "border-box",
+                  textAlign: "center",
+                }}
+              >
                 Venue Website
               </a>
             ) : null}
