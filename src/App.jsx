@@ -460,15 +460,6 @@ export default function App() {
     })();
   }, []);
 
-  useEffect(() => {
-    setCountdown(getCountdownParts(countdownTargetIso));
-
-    const id = setInterval(() => {
-      setCountdown(getCountdownParts(countdownTargetIso));
-    }, 60000);
-
-    return () => clearInterval(id);
-  }, [countdownTargetIso]);
 
   async function handleLookup() {
     setLookupState("loading");
@@ -543,6 +534,16 @@ export default function App() {
   const countdownTargetIso = normalizedInviteType === "ceremony_party"
     ? WEDDING.ceremonyPartyIsoDate
     : WEDDING.saturdayPartyIsoDate;
+
+  useEffect(() => {
+    setCountdown(getCountdownParts(countdownTargetIso));
+
+    const id = setInterval(() => {
+      setCountdown(getCountdownParts(countdownTargetIso));
+    }, 60000);
+
+    return () => clearInterval(id);
+  }, [countdownTargetIso]);
 
   const visibleSchedule = WEDDING.schedule.filter((item) => {
     if (!guest) return true;
