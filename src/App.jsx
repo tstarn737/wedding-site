@@ -157,6 +157,7 @@ const styles = {
     backgroundColor: "#0a0a0a",
     borderBottom: "1px solid rgba(255,255,255,.1)",
     position: "relative",
+    overflow: "hidden",
   },
   shell: {
     maxWidth: 1180,
@@ -719,6 +720,17 @@ export default function App() {
             </motion.div>
           </div>
         </div>
+              <div
+          style={{
+            position: "absolute",
+            left: 0,
+            right: 0,
+            bottom: 0,
+            height: isMobile ? 220 : 180,
+            pointerEvents: "none",
+            background: "linear-gradient(to bottom, rgba(10,10,10,0) 0%, rgba(10,10,10,.35) 35%, rgba(10,10,10,.75) 70%, #0a0a0a 100%)",
+          }}
+        />
       </section>
 
       {guest ? (
