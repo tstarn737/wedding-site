@@ -7,6 +7,8 @@ import {
   Users,
   PartyPopper,
   CheckCircle2,
+  HouseHeart,
+  Mountain,
 } from "lucide-react";
 
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyMpJy6E2kALozdEwoqKW5wywWHz3oPkKqFPLGsLtSMc_hnT2RgIcaOtO_ei5OypEZs/exec";
@@ -844,13 +846,13 @@ export default function App() {
                   <div style={{ ...styles.muted, color: "rgba(255,255,255,.72)", marginTop: 8 }}>{heroDateLabel}</div>
                 </div>
                 <div style={styles.darkCard}>
-                  <MapPin size={22} color="rgba(255,255,255,.7)" />
+                  <MapPin size={22} color="rgba(255,255,255,.7)" /><Mountain size={22} color="rgba(255,255,255,.7)" />
                   <div style={{ fontSize: 22, fontWeight: 650, marginTop: 14 }}>Where</div>
                   <div style={{ ...styles.muted, color: "rgba(255,255,255,.72)", marginTop: 8 }}>{WEDDING.city}</div>
                 </div>
                 <div style={styles.darkCard}>
-                  <Heart size={22} color="rgba(255,255,255,.7)" />
-                  <div style={{ fontSize: 22, fontWeight: 650, marginTop: 14 }}>RSVP Logic</div>
+                  <HouseHeart size={22} color="rgba(255,255,255,.7)" />
+                  <div style={{ fontSize: 22, fontWeight: 650, marginTop: 14 }}>House Fund</div>
                   <div style={{ ...styles.muted, color: "rgba(255,255,255,.72)", marginTop: 8 }}>
                     Saturday Party guests only see party details. Ceremony & Party guests see the full event flow.
                   </div>
