@@ -152,10 +152,6 @@ const styles = {
   },
   hero: {
     minHeight: "78vh",
-    backgroundImage: `linear-gradient(to bottom, rgba(10,10,10,.2), rgba(10,10,10,.9)), url(${WEDDING.heroImage})`,
-    backgroundSize: "contain",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center top",
     backgroundColor: "#0a0a0a",
     borderBottom: "1px solid rgba(255,255,255,.1)",
     position: "relative",
@@ -558,6 +554,33 @@ export default function App() {
   return (
     <div style={styles.page}>
       <section style={styles.hero}>
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: `url(${WEDDING.heroImage})`,
+            backgroundSize: isMobile ? "contain" : "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: isMobile ? "center top" : "center 35%",
+            WebkitMaskImage: isMobile
+              ? "linear-gradient(to bottom, black 0%, black 48%, rgba(0,0,0,.92) 60%, rgba(0,0,0,.55) 74%, transparent 92%)"
+              : "linear-gradient(to bottom, black 0%, black 62%, rgba(0,0,0,.88) 74%, rgba(0,0,0,.45) 86%, transparent 100%)",
+            maskImage: isMobile
+              ? "linear-gradient(to bottom, black 0%, black 48%, rgba(0,0,0,.92) 60%, rgba(0,0,0,.55) 74%, transparent 92%)"
+              : "linear-gradient(to bottom, black 0%, black 62%, rgba(0,0,0,.88) 74%, rgba(0,0,0,.45) 86%, transparent 100%)",
+            opacity: 0.98,
+            zIndex: 0,
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "linear-gradient(to bottom, rgba(10,10,10,.18) 0%, rgba(10,10,10,.3) 26%, rgba(10,10,10,.52) 56%, rgba(10,10,10,.78) 78%, #0a0a0a 100%)",
+            zIndex: 1,
+            pointerEvents: "none",
+          }}
+        />
         <div style={styles.shell}>
           <div style={{
             ...styles.heroGrid,
@@ -734,34 +757,6 @@ export default function App() {
             </motion.div>
           </div>
         </div>
-              <>
-        {isMobile ? (
-          <div
-            style={{
-              position: "absolute",
-              left: 0,
-              right: 0,
-              top: "clamp(300px, 76vw, 430px)",
-              height: 180,
-              pointerEvents: "none",
-              background: "linear-gradient(to bottom, rgba(10,10,10,0) 0%, rgba(10,10,10,.22) 28%, rgba(10,10,10,.55) 68%, #0a0a0a 100%)",
-              zIndex: 1,
-            }}
-          />
-        ) : null}
-        <div
-          style={{
-            position: "absolute",
-            left: 0,
-            right: 0,
-            bottom: 0,
-            height: isMobile ? 110 : 180,
-            pointerEvents: "none",
-            background: "linear-gradient(to bottom, rgba(10,10,10,0) 0%, rgba(10,10,10,.16) 32%, rgba(10,10,10,.45) 72%, #0a0a0a 100%)",
-            zIndex: 1,
-          }}
-        />
-      </>
       </section>
 
       {guest ? (
