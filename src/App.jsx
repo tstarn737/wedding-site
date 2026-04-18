@@ -720,17 +720,32 @@ export default function App() {
             </motion.div>
           </div>
         </div>
-              <div
+              <>
+        {isMobile ? (
+          <div
+            style={{
+              position: "absolute",
+              left: 0,
+              right: 0,
+              top: "clamp(300px, 76vw, 430px)",
+              height: 180,
+              pointerEvents: "none",
+              background: "linear-gradient(to bottom, rgba(10,10,10,0) 0%, rgba(10,10,10,.32) 28%, rgba(10,10,10,.72) 68%, #0a0a0a 100%)",
+            }}
+          />
+        ) : null}
+        <div
           style={{
             position: "absolute",
             left: 0,
             right: 0,
             bottom: 0,
-            height: isMobile ? 220 : 180,
+            height: isMobile ? 110 : 180,
             pointerEvents: "none",
-            background: "linear-gradient(to bottom, rgba(10,10,10,0) 0%, rgba(10,10,10,.35) 35%, rgba(10,10,10,.75) 70%, #0a0a0a 100%)",
+            background: "linear-gradient(to bottom, rgba(10,10,10,0) 0%, rgba(10,10,10,.22) 32%, rgba(10,10,10,.6) 72%, #0a0a0a 100%)",
           }}
         />
+      </>
       </section>
 
       {guest ? (
