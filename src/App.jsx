@@ -530,7 +530,7 @@ export default function App() {
   }
 
   const normalizedInviteType = normalizeInviteType(guest?.inviteType);
-  const heroDateLabel = normalizedInviteType === "ceremony_party" ? "September 18 & 19, 2026" : "September 19, 2026";
+  const heroDateLabel = normalizedInviteType === "ceremony_party" ? "Sep 18 & 19, 2026" : "Sep 19, 2026";
   const countdownTargetIso = normalizedInviteType === "ceremony_party"
     ? WEDDING.ceremonyPartyIsoDate
     : WEDDING.saturdayPartyIsoDate;
@@ -587,7 +587,9 @@ export default function App() {
               </div>
 
               <div style={styles.pillRow}>
+                {guest ? (
                 <div style={styles.pill}><CalendarDays size={16} /> {heroDateLabel}</div>
+              ) : null}
                 <div style={styles.pill}><MapPin size={16} /> {WEDDING.city}</div>
               </div>
 
