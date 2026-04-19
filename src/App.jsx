@@ -874,7 +874,7 @@ export default function App() {
                   <HouseHeart size={22} color="rgba(255,255,255,.7)" />
                   <div style={{ fontSize: 22, fontWeight: 650, marginTop: 14 }}>House Fund</div>
                   <div style={{ ...styles.muted, color: "rgba(255,255,255,.72)", marginTop: 8 }}>
-                    Your presence is more than enough. For those who have asked, we are putting together a home fund for projects on our new place.
+                    We do not have a gift registry, your presence is more than enough. For those who have asked, we are putting together a home fund for projects at our new house.
                   </div>
                   <div style={{ display: "grid", gap: 10, marginTop: 14 }}>
                     <a
