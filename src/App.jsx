@@ -20,7 +20,7 @@ const HOME_FUND = {
 };
 
 const WEDDING = {
-  couple: "Tyler & Ashlyn",
+  couple: "Ashlyn & Tyler",
   city: "Denver, Colorado",
   venue: "Wedding Weekend",
   heroImage: "/hero.jpg",
