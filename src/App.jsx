@@ -13,6 +13,11 @@ import {
 
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyMpJy6E2kALozdEwoqKW5wywWHz3oPkKqFPLGsLtSMc_hnT2RgIcaOtO_ei5OypEZs/exec";
 
+const HOME_FUND = {
+  venmoUrl: "https://venmo.com/YOUR_HANDLE",
+  cashAppUrl: "https://cash.app/$YOURNAME",
+};
+
 const WEDDING = {
   couple: "Tyler & Ashlyn",
   city: "Denver, Colorado",
@@ -27,7 +32,7 @@ const WEDDING = {
       title: "Wedding Ceremony",
       time: "Friday Sep 18, 3:40 PM",
       description:
-        "Ceremony begins at 4:00 PM, followed by time for photos with family and friends.",
+        "Please arrive by 3:40PM, Ceremony begins at 4:00 PM, followed by time for photos with family and friends.",
       tag: "full_day",
       venueName: "Yetman Family Farms",
       address: "2995 S. Estes Street, Lakewood, CO 80227",
@@ -869,7 +874,41 @@ export default function App() {
                   <HouseHeart size={22} color="rgba(255,255,255,.7)" />
                   <div style={{ fontSize: 22, fontWeight: 650, marginTop: 14 }}>House Fund</div>
                   <div style={{ ...styles.muted, color: "rgba(255,255,255,.72)", marginTop: 8 }}>
-                    We know we have generous family & friends, but we are not in need of any gifts, if you are inclined to gift anything we appreciate donations for remodelling our new home together.
+                    Your presence is more than enough. For those who have asked, we are putting together a home fund for projects on our new place.
+                  </div>
+                  <div style={{ display: "grid", gap: 10, marginTop: 14 }}>
+                    <a
+                      href={HOME_FUND.venmoUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      style={{
+                        ...styles.button,
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        textDecoration: "none",
+                        width: "100%",
+                        boxSizing: "border-box",
+                      }}
+                    >
+                      Contribute via Venmo
+                    </a>
+                    <a
+                      href={HOME_FUND.cashAppUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      style={{
+                        ...styles.ghostButton,
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        textDecoration: "none",
+                        width: "100%",
+                        boxSizing: "border-box",
+                      }}
+                    >
+                      Contribute via Cash App
+                    </a>
                   </div>
                 </div>
               </div>
