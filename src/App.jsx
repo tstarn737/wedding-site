@@ -299,6 +299,9 @@ const styles = {
     border: "1px solid rgba(255,255,255,.1)",
     background: "rgba(15,15,15,.58)",
     backdropFilter: "blur(8px)",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
   },
   scheduleGrid: {
     display: "grid",
