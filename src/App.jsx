@@ -898,6 +898,7 @@ export default function App() {
                     >
                       Contribute via Venmo
                     </a>
+                    {/*
                     <a
                       href={HOME_FUND.cashAppUrl}
                       target="_blank"
@@ -914,6 +915,7 @@ export default function App() {
                     >
                       Contribute via Cash App
                     </a>
+                    */}
                   </div>
                 </div>
               </div>
