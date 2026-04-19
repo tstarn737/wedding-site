@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { motion } from "framer-motion";
 import {
   CalendarDays,
   Heart,
@@ -9,6 +8,7 @@ import {
   CheckCircle2,
   HouseHeart,
   Mountain,
+  Utensils,
 } from "lucide-react";
 
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyMpJy6E2kALozdEwoqKW5wywWHz3oPkKqFPLGsLtSMc_hnT2RgIcaOtO_ei5OypEZs/exec";
@@ -230,6 +230,10 @@ const styles = {
     flexWrap: "wrap",
     gap: 12,
     marginTop: 24,
+    justifyContent: "center",
+    maxWidth: 420,
+    marginLeft: "auto",
+    marginRight: "auto",
   },
   pill: {
     display: "inline-flex",
@@ -373,10 +377,16 @@ function EventCard({ item, isMobile }) {
 
         <div style={{ padding: 24 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 18 }}>
-            <div style={{ background: "#f5f5f5", borderRadius: 999, padding: "8px 12px", fontSize: 13, fontWeight: 600 }}>
+            <div style={{ background: "#111", color: "#fff", borderRadius: 999, padding: "8px 12px", fontSize: 13, fontWeight: 600 }}>
               {item.time}
             </div>
-            {item.tag === "full_day" ? <Users size={16} color="#666" /> : <PartyPopper size={16} color="#666" />}
+            {item.tag === "party_only" ? (
+              <PartyPopper size={16} color="#666" />
+            ) : item.title.toLowerCase().includes("dinner") ? (
+              <Utensils size={16} color="#666" />
+            ) : (
+              <Heart size={16} color="#666" />
+            )}
           </div>
 
           <div style={{ fontSize: 22, fontWeight: 650 }}>{item.title}</div>
@@ -882,7 +892,7 @@ export default function App() {
                       target="_blank"
                       rel="noreferrer"
                       style={{
-                        ...styles.button,
+                        ...styles.ghostButton,
                         display: "inline-flex",
                         alignItems: "center",
                         justifyContent: "center",
