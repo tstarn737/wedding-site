@@ -1,10 +1,10 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { motion } from "framer-motion";
 import {
   CalendarDays,
   Heart,
   HouseHeart,
   MapPin,
+  Mountain,
   PartyPopper,
   CheckCircle2,
   Home,
@@ -386,7 +386,7 @@ function EventCard({ item, isMobile }) {
 
         <div style={{ padding: 24 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 18 }}>
-            <div style={{ background: "#f4f4f5", color: "#111", borderRadius: 999, padding: "8px 12px", fontSize: 13, fontWeight: 600 }}>
+            <div style={{ background: "#f4f4f5", color: "#111", borderRadius: 999, padding: "8px 12px", fontSize: 13, fontWeight: 600, border: "1px solid #e4e4e7" }}>
               {item.time}
             </div>
             {item.tag === "party_only" ? (
@@ -867,7 +867,10 @@ export default function App() {
                   <div style={{ ...styles.muted, color: "rgba(255,255,255,.72)", marginTop: 8 }}>{heroDateLabel}</div>
                 </div>
                 <div style={styles.darkCard}>
-                  <MapPin size={22} color="rgba(255,255,255,.7)" />
+                  <div style={{ display: "flex", gap: 6 }}>
+                    <MapPin size={22} color="rgba(255,255,255,.7)" />
+                    <Mountain size={22} color="rgba(255,255,255,.7)" />
+                  </div>
                   <div style={{ fontSize: 22, fontWeight: 650, marginTop: 14 }}>Where</div>
                   <div style={{ ...styles.muted, color: "rgba(255,255,255,.72)", marginTop: 8 }}>{WEDDING.city}</div>
                 </div>
