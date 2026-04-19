@@ -696,7 +696,7 @@ export default function App() {
                     <Heart size={22} /> RSVP
                   </div>
                   <div style={{ ...styles.muted, marginTop: 8 }}>
-                    Please reply with your attendance and current mailing address so we can stay in touch.
+                    Please RSVP by July 19, 2026.  We would love to collect your address even if you cannot attend so that we can so we can stay in touch!
                   </div>
 
                   {submitState !== "done" ? (
