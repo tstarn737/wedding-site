@@ -541,6 +541,13 @@ export default function App() {
     return () => clearInterval(id);
   }, [countdownTargetIso]);
 
+  // Dynamic tab title
+  useEffect(() => {
+    document.title = guest?.partyName
+      ? `${guest.partyName} | ${WEDDING.couple}`
+      : `${WEDDING.couple} Wedding`;
+  }, [guest]);
+
   const visibleSchedule = useMemo(() => {
     return WEDDING.schedule.filter((item) => {
       if (!guest) return true;
