@@ -380,7 +380,7 @@ function EventCard({ item, isMobile }) {
 
         <div style={{ padding: 24 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 18 }}>
-            <div style={{ background: "rgba(0,0,0,.06)", color: "#111", borderRadius: 999, padding: "8px 12px", fontSize: 13, fontWeight: 600, border: "1px solid rgba(0,0,0,.08)" }}>
+            <div style={{ background: "#f4f4f5", color: "#111", borderRadius: 999, padding: "8px 12px", fontSize: 13, fontWeight: 600 }}>
               {item.time}
             </div>
             {item.tag === "party_only" ? (
