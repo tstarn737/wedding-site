@@ -659,25 +659,7 @@ export default function App() {
                 <div style={{ fontSize: 20, fontWeight: 500, marginBottom: 10, opacity: 0.85 }}>{WEDDING.venue}</div>
                 <p style={styles.sub}>{WEDDING.story}</p>
 
-                <div style={{ marginTop: 22 }}>
-                  <button
-                    style={{
-                      padding: "12px 18px",
-                      borderRadius: 999,
-                      background: "rgba(255,255,255,.12)",
-                      border: "1px solid rgba(255,255,255,.2)",
-                      color: "#fff",
-                      cursor: "pointer",
-                      fontWeight: 600,
-                    }}
-                    onClick={() => {
-                      const el = document.getElementById("when-section");
-                      if (el) el.scrollIntoView({ behavior: "smooth" });
-                    }}
-                  >
-                    View Details ↓
-                  </button>
-                </div>
+                
 
                 <div style={styles.pillRow}>
                   {guest ? <div style={styles.pill}><CalendarDays size={16} /> {heroDateLabel}</div> : null}
