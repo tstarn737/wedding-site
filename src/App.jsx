@@ -491,6 +491,8 @@ export default function App() {
   const [cityStateZip, setCityStateZip] = useState("");
   const [notes, setNotes] = useState("");
   const [attending, setAttending] = useState("yes");
+  const [attendingCeremony, setAttendingCeremony] = useState(true);
+  const [attendingParty, setAttendingParty] = useState(true);
   const [submitState, setSubmitState] = useState("idle");
   const [submitMessage, setSubmitMessage] = useState("");
   const [hasSubmittedForCode, setHasSubmittedForCode] = useState(false);
@@ -520,6 +522,8 @@ export default function App() {
         setGuest(result.guest);
         setLookupState("done");
         setHasSubmittedForCode(false);
+        setAttendingCeremony(true);
+        setAttendingParty(true);
         setGuestNames([""]);
         setSubmitMessage("");
       } catch {
@@ -564,6 +568,8 @@ export default function App() {
       setGuest(result.guest);
       setLookupState("done");
       setHasSubmittedForCode(false);
+      setAttendingCeremony(true);
+      setAttendingParty(true);
       setSubmitMessage("");
     } catch {
       setLookupState("idle");
@@ -589,6 +595,19 @@ export default function App() {
     });
   }
 
+  function getAttendingValue() {
+    if (attending !== "yes") return "none";
+
+    if (normalizedInviteType === "ceremony_party") {
+      if (attendingCeremony && attendingParty) return "party & ceremony";
+      if (attendingCeremony) return "ceremony";
+      if (attendingParty) return "party";
+      return "none";
+    }
+
+    return "party";
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
     if (!guest) {
@@ -605,16 +624,24 @@ export default function App() {
       partyName: guest.partyName,
       inviteType: guest.inviteType,
       invitedEventLabel: normalizedInviteType === "ceremony_party" ? "Ceremony & Party" : "Saturday Party",
-      attending,
-      guestCount: attending === "yes" ? Number(guestCount) : 0,
-      guestNames: attending === "yes"
+      attending: getAttendingValue(),
+      guestCount: getAttendingValue() !== "none" ? Number(guestCount) : 0,
+      guestNames: getAttendingValue() !== "none"
         ? guestNames.slice(0, Number(guestCount)).map((name) => name.trim()).filter(Boolean)
         : [],
       email: email.trim(),
       streetAddress: streetAddress.trim(),
       cityStateZip: cityStateZip.trim(),
       notes: notes.trim(),
-      allowedEvents: normalizedInviteType === "ceremony_party" ? ["ceremony", "party"] : ["party"],
+      allowedEvents:
+        normalizedInviteType === "ceremony_party"
+          ? [
+              ...(attendingCeremony ? ["ceremony"] : []),
+              ...(attendingParty ? ["party"] : []),
+            ]
+          : getAttendingValue() === "party"
+            ? ["party"]
+            : [],
     };
 
     try {
@@ -757,6 +784,30 @@ export default function App() {
                           </div>
                         ) : null}
                       </div>
+
+                      {attending === "yes" && normalizedInviteType === "ceremony_party" ? (
+                        <div style={{ marginTop: 14 }}>
+                          <label style={styles.fieldLabel}>Which events will you attend?</label>
+                          <div style={{ display: "grid", gap: 10 }}>
+                            <label style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 14 }}>
+                              <input
+                                type="checkbox"
+                                checked={attendingCeremony}
+                                onChange={(e) => setAttendingCeremony(e.target.checked)}
+                              />
+                              Ceremony & Friday dinner
+                            </label>
+                            <label style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 14 }}>
+                              <input
+                                type="checkbox"
+                                checked={attendingParty}
+                                onChange={(e) => setAttendingParty(e.target.checked)}
+                              />
+                              Saturday party
+                            </label>
+                          </div>
+                        </div>
+                      ) : null}
 
                       {attending === "yes" ? (
                         <div style={{ marginTop: 14 }}>
