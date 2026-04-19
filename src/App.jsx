@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import {
   CalendarDays,
+  Heart,
   HouseHeart,
   MapPin,
   PartyPopper,
