@@ -15,7 +15,7 @@ import {
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyMpJy6E2kALozdEwoqKW5wywWHz3oPkKqFPLGsLtSMc_hnT2RgIcaOtO_ei5OypEZs/exec";
 
 const HOME_FUND = {
-  venmoUrl: "https://venmo.com/YOUR_HANDLE",
+  venmoUrl: "https://venmo.com/Ashlyn-Trotter",
   cashAppUrl: "https://cash.app/$YOURNAME",
 };
 
