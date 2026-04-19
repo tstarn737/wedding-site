@@ -302,6 +302,8 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
   },
   scheduleGrid: {
     display: "grid",
