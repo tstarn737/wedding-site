@@ -64,7 +64,7 @@ const WEDDING = {
       venueName: "Stick & Feather",
       address: "3851 Steele St - Unit 1378, Denver, CO 80205",
       website: "https://www.stickandfeather.com/",
-      mapLink: "https://goo.gl/maps/9h2jJ4j5mM1N5mM48",
+      mapLink: "https://maps.app.goo.gl/3yoALpvSjecRATri8",
       image:
         "https://images.squarespace-cdn.com/content/v1/603bee699959d83fcdc0eaf3/43abd80d-0db9-4e4d-9eab-74b5960362fe/kateivyphotography-147.jpg",
     },
