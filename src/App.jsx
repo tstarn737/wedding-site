@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import {
   CalendarDays,
-  Heart,
+  HouseHeart,
   MapPin,
   PartyPopper,
   CheckCircle2,
@@ -250,6 +250,10 @@ const styles = {
     gridTemplateColumns: "repeat(3, minmax(0, 120px))",
     gap: 12,
     marginTop: 28,
+    justifyContent: "center",
+    maxWidth: 420,
+    marginLeft: "auto",
+    marginRight: "auto",
   },
   countdownBox: {
     background: "rgba(255,255,255,.09)",
@@ -376,7 +380,7 @@ function EventCard({ item, isMobile }) {
 
         <div style={{ padding: 24 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 18 }}>
-            <div style={{ background: "#111", color: "#fff", borderRadius: 999, padding: "8px 12px", fontSize: 13, fontWeight: 600 }}>
+            <div style={{ background: "rgba(0,0,0,.06)", color: "#111", borderRadius: 999, padding: "8px 12px", fontSize: 13, fontWeight: 600, border: "1px solid rgba(0,0,0,.08)" }}>
               {item.time}
             </div>
             {item.tag === "party_only" ? (
@@ -880,7 +884,7 @@ export default function App() {
                   <div style={{ ...styles.muted, color: "rgba(255,255,255,.72)", marginTop: 8 }}>{WEDDING.city}</div>
                 </div>
                 <div style={styles.darkCard}>
-                  <Home size={22} color="rgba(255,255,255,.7)" />
+                  <HouseHeart size={22} color="rgba(255,255,255,.7)" />
                   <div style={{ fontSize: 22, fontWeight: 650, marginTop: 14 }}>House Fund</div>
                   <div style={{ ...styles.muted, color: "rgba(255,255,255,.72)", marginTop: 8 }}>
                     We do not have a gift registry, your presence is more than enough. For those who have asked, we are putting together a home fund for projects at our new house.
