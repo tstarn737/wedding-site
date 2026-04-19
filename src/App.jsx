@@ -1,13 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { motion } from "framer-motion";
 import {
   CalendarDays,
   Heart,
   MapPin,
-  Users,
   PartyPopper,
   CheckCircle2,
-  HouseHeart,
-  Mountain,
+  Home,
   Utensils,
 } from "lucide-react";
 
@@ -876,12 +875,12 @@ export default function App() {
                   <div style={{ ...styles.muted, color: "rgba(255,255,255,.72)", marginTop: 8 }}>{heroDateLabel}</div>
                 </div>
                 <div style={styles.darkCard}>
-                  <MapPin size={22} color="rgba(255,255,255,.7)" /><Mountain size={22} color="rgba(255,255,255,.7)" />
+                  <MapPin size={22} color="rgba(255,255,255,.7)" />
                   <div style={{ fontSize: 22, fontWeight: 650, marginTop: 14 }}>Where</div>
                   <div style={{ ...styles.muted, color: "rgba(255,255,255,.72)", marginTop: 8 }}>{WEDDING.city}</div>
                 </div>
                 <div style={styles.darkCard}>
-                  <HouseHeart size={22} color="rgba(255,255,255,.7)" />
+                  <Home size={22} color="rgba(255,255,255,.7)" />
                   <div style={{ fontSize: 22, fontWeight: 650, marginTop: 14 }}>House Fund</div>
                   <div style={{ ...styles.muted, color: "rgba(255,255,255,.72)", marginTop: 8 }}>
                     We do not have a gift registry, your presence is more than enough. For those who have asked, we are putting together a home fund for projects at our new house.
