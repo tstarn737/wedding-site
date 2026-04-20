@@ -1009,6 +1009,43 @@ export default function App() {
                 ))}
               </div>
             </section>
+
+            {normalizedInviteType === "ceremony_party" ? (
+              <section style={{ ...styles.section, paddingTop: 0 }}>
+                <div style={{ textAlign: "center", marginBottom: 18 }}>
+                  <div style={{ fontSize: 12, letterSpacing: ".18em", textTransform: "uppercase", color: "rgba(255,255,255,.5)" }}>
+                    Explore the Weekend
+                  </div>
+                  <div style={{ fontSize: 30, fontWeight: 700, marginTop: 10 }}>
+                    Locations & Nearby Stays
+                  </div>
+                  <div style={{ ...styles.muted, color: "rgba(255,255,255,.7)", marginTop: 8 }}>
+                    View all venues and explore nearby hotels and Airbnbs.
+                  </div>
+                </div>
+
+                <div style={{ display: "flex", justifyContent: "center", marginBottom: 14 }}>
+                  <a
+                    href="https://www.google.com/maps/d/edit?mid=1EoH4WyUduNTa7kF_FzoKqtpGrgMZM2E&usp=sharing"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{ ...styles.ghostButton }}
+                  >
+                    Open Full Map
+                  </a>
+                </div>
+
+                <div style={{ borderRadius: 24, overflow: "hidden", border: "1px solid rgba(255,255,255,.1)", boxShadow: "0 20px 60px rgba(0,0,0,.25)" }}>
+                  <iframe
+                    src="https://www.google.com/maps/d/embed?mid=1EoH4WyUduNTa7kF_FzoKqtpGrgMZM2E&ehbc=2E312F"
+                    width="100%"
+                    height="480"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                  ></iframe>
+                </div>
+              </section>
+            ) : null}
           </>
         ) : null}
       </div>
