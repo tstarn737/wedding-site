@@ -1007,7 +1007,7 @@ export default function App() {
                     Schedule
                   </div>
                   <div style={{ fontSize: 36, fontWeight: 700, marginTop: 10 }}>Your event flow</div>
-                  <div style={{ fontSize: 14, color: "rgba(255,255,255,.65)", marginTop: 6 }}>
+                  <div style={{ fontSize: 14, fontWeight: 600, color: "rgba(255,255,255,.9)", marginTop: 6 }}>
                     We will be having a small wedding ceremony with family on Friday, so Saturday will be all party!
                   </div>
                 </div>
