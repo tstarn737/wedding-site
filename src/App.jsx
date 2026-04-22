@@ -487,6 +487,7 @@ export default function App() {
   const [guestCount, setGuestCount] = useState("1");
   const [guestNames, setGuestNames] = useState([""]);
   const [email, setEmail] = useState("");
+  const [foodRestrictions, setFoodRestrictions] = useState("");
   const [streetAddress, setStreetAddress] = useState("");
   const [cityStateZip, setCityStateZip] = useState("");
   const [notes, setNotes] = useState("");
@@ -640,6 +641,7 @@ export default function App() {
       streetAddress: streetAddress.trim(),
       cityStateZip: cityStateZip.trim(),
       notes: notes.trim(),
+      foodRestrictions: foodRestrictions.trim(),
       allowedEvents:
         normalizedInviteType === "ceremony_party"
           ? [
@@ -834,6 +836,16 @@ export default function App() {
                       ) : null}
 
                       <div style={{ marginTop: 14 }}>
+                        <label style={styles.fieldLabel}>Food Restrictions / Allergies</label>
+                        <input
+                          value={foodRestrictions}
+                          onChange={(e) => setFoodRestrictions(e.target.value)}
+                          placeholder="Let us know about any allergies or dietary restrictions"
+                          style={styles.input}
+                        />
+                      </div>
+
+                      <div style={{ marginTop: 14 }}>
                         <label style={styles.fieldLabel}>Email</label>
                         <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email address" style={styles.input} />
                       </div>
@@ -1026,26 +1038,26 @@ export default function App() {
 
                 <div style={{ display: "flex", justifyContent: "center", marginBottom: 14 }}>
                   <a
-                  href="https://www.google.com/maps/d/edit?mid=1EoH4WyUduNTa7kF_FzoKqtpGrgMZM2E&usp=sharing"
-                  target="_blank"
-                  rel="noreferrer"
-                  style={{
-                    ...styles.ghostButton,
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    height: "auto",
-                    padding: "12px 18px",
-                    textDecoration: "none",
-                    lineHeight: 1.3,
-                  }}
-                >
-                  <span style={{ fontWeight: 600 }}>Open Full Event Map</span>
-                  <span style={{ fontSize: 12, color: "#666", marginTop: 4 }}>
-                    once open click "Legend" if on mobile to view all details
-                  </span>
-                </a>
+                    href="https://www.google.com/maps/d/edit?mid=1EoH4WyUduNTa7kF_FzoKqtpGrgMZM2E&usp=sharing"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      ...styles.ghostButton,
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      height: "auto",
+                      padding: "12px 18px",
+                      textDecoration: "none",
+                      lineHeight: 1.3,
+                    }}
+                  >
+                    <span style={{ fontWeight: 600 }}>Open Full Event Map</span>
+                    <span style={{ fontSize: 12, color: "#666", marginTop: 4 }}>
+                      once open click "Legend" if on mobile to view all details
+                    </span>
+                  </a>
                 </div>
 
                 <div style={{ borderRadius: 24, overflow: "hidden", border: "1px solid rgba(255,255,255,.1)", boxShadow: "0 20px 60px rgba(0,0,0,.25)" }}>
