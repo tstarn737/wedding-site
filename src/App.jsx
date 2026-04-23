@@ -424,21 +424,21 @@ function EventCard({ item, isMobile }) {
               <strong style={{ color: "#111" }}>Address:</strong> {item.address}
             </div>
           ) : null}
-
-          {/* Ceremony Waiver Notice */}
           {item.title.toLowerCase().includes("ceremony") ? (
             <div style={{ marginTop: 14 }}>
-              <div style={{ fontWeight: 700 }}>
+              <div style={{ fontWeight: 700, marginBottom: 8 }}>
                 All guests must sign waiver for the venue.
               </div>
             </div>
           ) : null}
 
-          {/* Buttons */}
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+              gridTemplateColumns:
+                item.title.toLowerCase().includes("ceremony")
+                  ? (isMobile ? "1fr" : "1fr 1fr 1fr")
+                  : (isMobile ? "1fr" : "1fr 1fr"),
               gap: 10,
               marginTop: 16,
               width: "100%",
@@ -446,7 +446,7 @@ function EventCard({ item, isMobile }) {
           >
             {item.title.toLowerCase().includes("ceremony") ? (
               <a
-                href="https://forms.gle/H2URxeCJo6CujqmQ7"
+                href="#"
                 target="_blank"
                 rel="noreferrer"
                 style={{
@@ -457,6 +457,8 @@ function EventCard({ item, isMobile }) {
                   textDecoration: "none",
                   height: 42,
                   width: "100%",
+                  boxSizing: "border-box",
+                  textAlign: "center",
                 }}
               >
                 Ceremony Waiver
@@ -476,6 +478,8 @@ function EventCard({ item, isMobile }) {
                   textDecoration: "none",
                   height: 42,
                   width: "100%",
+                  boxSizing: "border-box",
+                  textAlign: "center",
                 }}
               >
                 Google Maps
@@ -495,6 +499,8 @@ function EventCard({ item, isMobile }) {
                   textDecoration: "none",
                   height: 42,
                   width: "100%",
+                  boxSizing: "border-box",
+                  textAlign: "center",
                 }}
               >
                 Venue Website
