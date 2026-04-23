@@ -446,7 +446,7 @@ function EventCard({ item, isMobile }) {
           >
             {item.title.toLowerCase().includes("ceremony") ? (
               <a
-                href="#"
+                href="https://forms.gle/H2URxeCJo6CujqmQ7"
                 target="_blank"
                 rel="noreferrer"
                 style={{
