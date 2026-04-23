@@ -219,7 +219,9 @@ const styles = {
     margin: "18px 0 10px",
     fontWeight: 650,
     letterSpacing: "-0.02em",
-  },
+    color: "#fff",
+    textShadow: "0 2px 12px rgba(0,0,0,.28)",
+    },
   sub: {
     color: "rgba(255,255,255,.78)",
     fontSize: 18,
