@@ -37,7 +37,7 @@ const WEDDING = {
       tag: "full_day",
       venueName: "Yetman Family Farms",
       address: "2995 S. Estes Street, Lakewood, CO 80227",
-      website: "https://www.yetmanfarms.com/weddings",
+      website: "https://www.yetmanfarms.com",
       mapLink:
         "https://www.google.com/maps/search/?api=1&query=2995+S+Estes+Street+Lakewood+CO+80227",
       image:
@@ -45,7 +45,7 @@ const WEDDING = {
     },
     {
       title: "Wedding Night Dinner",
-      time: "Friday Sep 18, 5:00 PM",
+      time: "Friday Sep 18, 6:45 PM",
       description:
         "Guests from the ceremony are invited to join us for dinner and drinks at our new home, just about a mile away.",
       tag: "full_day",
@@ -60,7 +60,7 @@ const WEDDING = {
       title: "Reception / Party",
       time: "Saturday Sep 19, 5:00 - 10:00 PM",
       description:
-        "Food, drinks, golf, music, and a very good time. We will update here once the food truck is locked in. Bring your swing — prizes for longest drive and closest to the pin.",
+        "Food, drinks, golf, music, and a whole lot of fun!",
       tag: "party_only",
       venueName: "Stick & Feather",
       address: "3851 Steele St - Unit 1378, Denver, CO 80205",
@@ -411,8 +411,8 @@ function EventCard({ item, isMobile }) {
               <div style={{ display: "grid", gridTemplateColumns: "110px 1fr", rowGap: 6, columnGap: 10, alignItems: "center" }}>
                 <div style={{ fontWeight: 600 }}>5:00 PM</div>
                 <div style={{ ...styles.muted }}>Start</div>
-                <div style={{ fontWeight: 600 }}>6–8 PM</div>
-                <div style={{ ...styles.muted }}>Food Truck</div>
+                {/* <div style={{ fontWeight: 600 }}>6–8 PM</div>
+                <div style={{ ...styles.muted }}>Food Truck</div> */}
                 <div style={{ fontWeight: 600 }}>10:00 PM</div>
                 <div style={{ ...styles.muted }}>Wrap Up</div>
               </div>
@@ -425,6 +425,16 @@ function EventCard({ item, isMobile }) {
             </div>
           ) : null}
 
+          {/* Ceremony Waiver Notice */}
+          {item.title.toLowerCase().includes("ceremony") ? (
+            <div style={{ marginTop: 14 }}>
+              <div style={{ fontWeight: 700 }}>
+                All guests must sign waiver for the venue.
+              </div>
+            </div>
+          ) : null}
+
+          {/* Buttons */}
           <div
             style={{
               display: "grid",
@@ -434,6 +444,25 @@ function EventCard({ item, isMobile }) {
               width: "100%",
             }}
           >
+            {item.title.toLowerCase().includes("ceremony") ? (
+              <a
+                href="https://forms.gle/H2URxeCJo6CujqmQ7"
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  ...styles.button,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  textDecoration: "none",
+                  height: 42,
+                  width: "100%",
+                }}
+              >
+                Ceremony Waiver
+              </a>
+            ) : null}
+
             {item.mapLink ? (
               <a
                 href={item.mapLink}
@@ -447,13 +476,12 @@ function EventCard({ item, isMobile }) {
                   textDecoration: "none",
                   height: 42,
                   width: "100%",
-                  boxSizing: "border-box",
-                  textAlign: "center",
                 }}
               >
                 Google Maps
               </a>
             ) : null}
+
             {item.website ? (
               <a
                 href={item.website}
@@ -467,8 +495,6 @@ function EventCard({ item, isMobile }) {
                   textDecoration: "none",
                   height: 42,
                   width: "100%",
-                  boxSizing: "border-box",
-                  textAlign: "center",
                 }}
               >
                 Venue Website
