@@ -25,7 +25,7 @@ const WEDDING = {
   venue: "Wedding Weekend",
   heroImage: "/hero.jpg",
   story:
-    "We’re so excited to celebrate with the people we love most. Thank you for being a part of our lives — we can’t wait to celebrate together.",
+    "We can’t wait to celebrate with you.",
   ceremonyPartyIsoDate: "2026-09-18T15:40:00",
   saturdayPartyIsoDate: "2026-09-19T17:00:00",
   schedule: [
@@ -418,15 +418,27 @@ function EventCard({ item, isMobile }) {
               </div>
             </div>
           ) : null}
+          {item.title.toLowerCase().includes("ceremony") ? (
+            <div style={{ ...styles.muted, marginTop: 14 }}>
+              <strong style={{ color: "#111" }}>Attire:</strong> Cocktail / Garden Party
+            </div>
+          ) : null}
+
+          {item.title.toLowerCase().includes("reception") || item.title.toLowerCase().includes("party") ? (
+            <div style={{ ...styles.muted, marginTop: 14 }}>
+              <strong style={{ color: "#111" }}>Attire:</strong> Semi-formal / Golf formal
+            </div>
+          ) : null}
 
           {item.address ? (
             <div style={{ ...styles.muted, marginTop: 14 }}>
               <strong style={{ color: "#111" }}>Address:</strong> {item.address}
             </div>
           ) : null}
+
           {item.title.toLowerCase().includes("ceremony") ? (
             <div style={{ marginTop: 14 }}>
-              <div style={{ fontWeight: 700, marginBottom: 8 }}>
+              <div style={{ fontWeight: 500, marginBottom: 8 }}>
                 All guests must sign waiver for the venue.
               </div>
             </div>
@@ -435,10 +447,7 @@ function EventCard({ item, isMobile }) {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns:
-                item.title.toLowerCase().includes("ceremony")
-                  ? (isMobile ? "1fr" : "1fr 1fr 1fr")
-                  : (isMobile ? "1fr" : "1fr 1fr"),
+              gridTemplateColumns: "1fr",
               gap: 10,
               marginTop: 16,
               width: "100%",
