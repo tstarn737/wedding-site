@@ -438,7 +438,7 @@ function EventCard({ item, isMobile }) {
 
           {item.title.toLowerCase().includes("ceremony") ? (
             <div style={{ marginTop: 14 }}>
-              <div style={{ fontWeight: 500, marginBottom: 8 }}>
+              <div style={{ fontWeight: 500, marginBottom: 8, fontSize: 12 }}>
                 All guests must sign waiver for the venue.
               </div>
             </div>
