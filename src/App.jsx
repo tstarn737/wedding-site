@@ -827,7 +827,9 @@ export default function App() {
                         </div>
                         {attending === "yes" ? (
                           <div>
-                            <label style={styles.fieldLabel}>Guest count</label>
+                            <label style={styles.fieldLabel}>
+                              RSVP Count ({guest?.maxGuests > 1 ? `1–${guest.maxGuests}` : "1"})
+                            </label>
                             <select value={guestCount} onChange={(e) => updateGuestCount(e.target.value)} style={styles.input}>
                               {Array.from({ length: guest?.maxGuests || 1 }, (_, i) => i + 1).map((n) => (
                                 <option key={n} value={String(n)}>{n}</option>
