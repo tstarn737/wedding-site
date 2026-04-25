@@ -791,7 +791,26 @@ export default function App() {
                           </div>
                         </>
                       ) : lookupState === "loading" ? (
-                        <div style={{ marginTop: 12, fontSize: 14, color: "#666" }}>Loading your invitation...</div>
+                        <div
+                          style={{
+                            marginTop: 12,
+                            fontSize: 14,
+                            color: "#666",
+                            display: "grid",
+                            justifyItems: "center",
+                            gap: 10,
+                            textAlign: "center",
+                          }}
+                        >
+                          <motion.div
+                            animate={{ scale: [1, 1.2, 1] }}
+                            transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
+                          >
+                            <Heart size={20} color="#111" />
+                          </motion.div>
+
+                          <div>Getting your invitation ready...</div>
+                        </div>
                       ) : null}
 
                       {guest ? (
@@ -865,14 +884,16 @@ export default function App() {
 
                       {attending === "yes" ? (
                         <div style={{ marginTop: 14 }}>
-                          <label style={styles.fieldLabel}>Guest names</label>
+                          <label style={styles.fieldLabel}>
+                            {Number(guestCount) > 1 ? "Names" : "Name"}
+                          </label>
                           <div style={{ display: "grid", gap: 10 }}>
                             {Array.from({ length: Number(guestCount) }, (_, i) => i).map((idx) => (
                               <input
                                 key={idx}
                                 value={guestNames[idx] || ""}
                                 onChange={(e) => updateGuestName(idx, e.target.value)}
-                                placeholder={`Guest ${idx + 1} name`}
+                                placeholder={`RSVP ${idx + 1} name`}
                                 style={styles.input}
                               />
                             ))}
@@ -885,7 +906,7 @@ export default function App() {
                         <input
                           value={foodRestrictions}
                           onChange={(e) => setFoodRestrictions(e.target.value)}
-                          placeholder="Let us know about any allergies or dietary restrictions"
+                          placeholder="Allergies or dietary restrictions"
                           style={styles.input}
                         />
                       </div>
