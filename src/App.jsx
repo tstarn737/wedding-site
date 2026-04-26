@@ -25,7 +25,7 @@ const WEDDING = {
   venue: "Wedding Weekend",
   heroImage: "/hero.jpg",
   story:
-    "We can’t wait to celebrate with you.",
+    "We can’t wait to celebrate with you!",
   ceremonyPartyIsoDate: "2026-09-18T15:40:00",
   saturdayPartyIsoDate: "2026-09-19T17:00:00",
   schedule: [
