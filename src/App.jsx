@@ -1106,7 +1106,7 @@ export default function App() {
                   gridTemplateColumns: isMobile ? "1fr" : styles.scheduleGrid.gridTemplateColumns,
                 }}
               >
-                {visibleSchedule.map((item) => (
+                {(!hasCodeFromUrl || lookupState === "done") && visibleSchedule.map((item) => (
                   <EventCard key={item.title} item={item} isMobile={isMobile} />
                 ))}
               </div>
