@@ -1010,7 +1010,7 @@ export default function App() {
           </div>
         </section>
 
-        {guest ? (
+        {true ? (
           <>
             <section id="when-section" style={styles.section}>
               <div
