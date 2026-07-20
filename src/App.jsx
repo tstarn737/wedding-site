@@ -19,6 +19,8 @@ const HOME_FUND = {
   cashAppUrl: "https://cash.app/$YOURNAME",
 };
 
+const RSVP_OPEN = false;
+
 const WEDDING = {
   couple: "Ashlyn & Tyler",
   city: "Denver, Colorado",
@@ -778,7 +780,26 @@ export default function App() {
                     Please RSVP by July 19, 2026.  We would love to collect your address even if you cannot attend so that we can so we can stay in touch!
                   </div>
 
-                  {submitState !== "done" ? (
+                  {!RSVP_OPEN ? (
+                    <div
+                      style={{
+                        marginTop: 22,
+                        padding: 20,
+                        borderRadius: 18,
+                        border: "1px solid #e4e4e7",
+                        background: "#f8f8f8",
+                        textAlign: "center",
+                      }}
+                    >
+                      <div style={{ fontSize: 18, fontWeight: 700 }}>
+                        RSVPs are now closed
+                      </div>
+
+                      <div style={{ ...styles.muted, marginTop: 8 }}>
+                        Please contact Ashlyn or Tyler directly if you need to update your response.
+                      </div>
+                    </div>
+                  ) : submitState !== "done" ? (
                     <form onSubmit={handleSubmit} style={{ marginTop: 22 }}>
                       {!hasCodeFromUrl ? (
                         <>
