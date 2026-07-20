@@ -12,7 +12,7 @@ import {
   Utensils,
 } from "lucide-react";
 
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyMpJy6E2kALozdEwoqKW5wywWHz3oPkKqFPLGsLtSMc_hnT2RgIcaOtO_ei5OypEZs/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwsU0ZpWKlhqtxXowgfizaMGkldYdXjO2U8TH2-izhnTCQ92ncJL0z3zlPsXl2AuxT4/exec";
 
 const HOME_FUND = {
   venmoUrl: "https://venmo.com/Ashlyn-Trotter",
