@@ -794,7 +794,32 @@ export default function App() {
                       <div style={{ fontSize: 18, fontWeight: 700 }}>
                         RSVPs are now closed, but you can still scroll down to review your event details
                       </div>
-
+                  {guest?.existingRsvp ? (
+                    <div
+                      style={{
+                        marginTop: 14,
+                        padding: 14,
+                        borderRadius: 14,
+                        background: "#fff",
+                        border: "1px solid #e4e4e7",
+                        fontSize: 15,
+                        lineHeight: 1.5,
+                      }}
+                    >
+                      <strong>Your RSVP:</strong>{" "}
+                      {guest.existingRsvp.attending === "none"
+                        ? `No for the ${guest.partyName} invitation.`
+                        : `Yes for ${guest.existingRsvp.guestCount} ${
+                            Number(guest.existingRsvp.guestCount) === 1
+                              ? "guest"
+                              : "guests"
+                          } for the ${guest.partyName} invitation.`}
+                    </div>
+                  ) : (
+                    <div style={{ ...styles.muted, marginTop: 14 }}>
+                      We do not have an RSVP response recorded for this invitation.
+                    </div>
+                  )}
                       <div style={{ ...styles.muted, marginTop: 8 }}>
                         Please contact Ashlyn or Tyler directly if you need to update your response.
                       </div>
