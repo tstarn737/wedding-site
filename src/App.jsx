@@ -792,7 +792,7 @@ export default function App() {
                       }}
                     >
                       <div style={{ fontSize: 18, fontWeight: 700 }}>
-                        RSVPs are now closed
+                        RSVPs are now closed, but you can still scroll down to review your event details
                       </div>
 
                       <div style={{ ...styles.muted, marginTop: 8 }}>
