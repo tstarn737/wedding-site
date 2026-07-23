@@ -422,7 +422,7 @@ function EventCard({ item, isMobile }) {
           ) : null}
           {item.title.toLowerCase().includes("ceremony") ? (
             <div style={{ ...styles.muted, marginTop: 14 }}>
-              <strong style={{ color: "#111" }}>Attire:</strong> Cocktail / Garden Party
+              <strong style={{ color: "#111" }}>Attire:</strong> Cocktail / Garden Party (florals encouraged!)
             </div>
           ) : null}
 
@@ -808,12 +808,12 @@ export default function App() {
                     >
                       <strong>Your RSVP:</strong>{" "}
                       {guest.existingRsvp.attending === "none"
-                        ? `No for the ${guest.partyName} invitation.`
-                        : `Yes for ${guest.existingRsvp.guestCount} ${
+                        ? `${guest.partyName} is not attending.`
+                        : `${guest.partyName} is attending (${guest.existingRsvp.guestCount} ${
                             Number(guest.existingRsvp.guestCount) === 1
-                              ? "guest"
-                              : "guests"
-                          } for the ${guest.partyName} invitation.`}
+                              ? "attendee"
+                              : "attendees"
+                          }).`}
                     </div>
                   ) : (
                     <div style={{ ...styles.muted, marginTop: 14 }}>
