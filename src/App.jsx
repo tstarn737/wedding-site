@@ -806,14 +806,36 @@ export default function App() {
                         lineHeight: 1.5,
                       }}
                     >
-                      <strong>Your RSVP:</strong>{" "}
-                      {guest.existingRsvp.attending === "none"
-                        ? `${guest.partyName} is not attending.`
-                        : `${guest.partyName} is attending (${guest.existingRsvp.guestCount} ${
-                            Number(guest.existingRsvp.guestCount) === 1
-                              ? "attendee"
-                              : "attendees"
-                          }).`}
+                      {hasCodeFromUrl && lookupState !== "done" ? (
+                      <div style={{ ...styles.muted, marginTop: 14 }}>
+                        Loading your RSVP details...
+                      </div>
+                    ) : guest?.existingRsvp ? (
+                      <div
+                        style={{
+                          marginTop: 14,
+                          padding: 14,
+                          borderRadius: 14,
+                          background: "#fff",
+                          border: "1px solid #e4e4e7",
+                          fontSize: 15,
+                          lineHeight: 1.5,
+                        }}
+                      >
+                        <strong>Your RSVP:</strong>{" "}
+                        {guest.existingRsvp.attending === "none"
+                          ? `${guest.partyName} is not attending.`
+                          : `${guest.partyName} is attending (${guest.existingRsvp.guestCount} ${
+                              Number(guest.existingRsvp.guestCount) === 1
+                                ? "attendee"
+                                : "attendees"
+                            }).`}
+                      </div>
+                    ) : guest ? (
+                      <div style={{ ...styles.muted, marginTop: 14 }}>
+                        We do not have an RSVP response recorded for this invitation.
+                      </div>
+                    ) : null}
                     </div>
                   ) : (
                     <div style={{ ...styles.muted, marginTop: 14 }}>
